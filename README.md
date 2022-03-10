@@ -1,1 +1,1 @@
-# daily-community
+github page for dailycommunity.com
