@@ -33,14 +33,21 @@ app.use(function(req, res, next){
 })
 
 // Import Routes
-const routes = require('insert routes here');
+const indexRoute = require('./routes/index');
+const communitiesRoute =  require('./routes/communities');
+const postsRoute =  require('./routes/posts');
+const authRoute =  require('./routes/auth');
 app.use(express.static('public'));
 
 // Mount Routes
-app.use('/', routes);
+app.use('/', indexRoute);
+app.use('/', communitiesRoute);
+app.use('/', postsRoute);
+app.use('/', authRoute);
 
 //set view engine
 app.set("view engine", "ejs");
+
 
 //connect to mongodb
 mongoose.connect(process.env.mongoDBURL, {

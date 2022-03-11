@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const postsCntrl = require('../controllers/posts');
+const usersCntrl = require('../controllers/auth');
 
 
 
