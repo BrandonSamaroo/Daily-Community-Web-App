@@ -33,14 +33,14 @@ app.use(function(req, res, next){
 })
 
 // Import Routes
-const indexRoute = require('./routes/index');
+const profilesRoute = require('./routes/profiles');
 const communitiesRoute =  require('./routes/communities');
 const postsRoute =  require('./routes/posts');
 const authRoute =  require('./routes/auth');
 app.use(express.static('public'));
 
 // Mount Routes
-app.use('/', indexRoute);
+app.use('/', profilesRoute);
 app.use('/', communitiesRoute);
 app.use('/', postsRoute);
 app.use('/', authRoute);

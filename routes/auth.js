@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const usersCntrl = require('../controllers/auth');
+const authCntrl = require('../controllers/auth');
 
-
+router.get('/', authCntrl.home_get);
 
 module.exports = router;
