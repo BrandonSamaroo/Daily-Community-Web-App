@@ -55,6 +55,7 @@ li a:hover {
 }
 
 .right-index{
+    background-color: brown;
     display: flex;
     width: 100%;
     height: 100%;
@@ -75,4 +76,13 @@ form{
 
 form *{
     margin-top: 10px;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: aliceblue;
+    text-decoration: none;
+    color: initial;
 }
