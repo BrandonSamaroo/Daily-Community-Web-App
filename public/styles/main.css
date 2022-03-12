@@ -1,0 +1,34 @@
+*{
+    font-family: 'Fredoka', sans-serif;
+}
+
+.topnav{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    align-items: top;
+    justify-content: space-around;
+    background-color: antiquewhite;
+}
+
+.topnav a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+}
+
+img{
+    cursor: pointer;
+}
+
+body{
+    max-width: 100%;
+    overflow-x: hidden;
+}

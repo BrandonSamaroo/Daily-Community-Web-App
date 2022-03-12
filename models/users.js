@@ -34,7 +34,9 @@ const userSchema = mongoose.Schema({
         type:String,
         required: true,
         lowercase: true,
-        unique: [true, "Username already exists"]
+        unique: [true, "Username already exists"],
+        minlength: [5, "Username must be longer than 5 characters"],
+        maxlength: [15, "Username must be less than 15 characters"]
     },
     posts:
     [{
