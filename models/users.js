@@ -57,7 +57,18 @@ const userSchema = mongoose.Schema({
     {
         type:String,
         //implement after
-    }
+    },
+    followers:
+    [{  
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    following:
+    [{  
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        unique: [true, "You are already following this account"]
+    }]
 },
     {
         timestamps: true

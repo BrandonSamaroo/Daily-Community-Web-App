@@ -4,6 +4,10 @@
         <div class="username"><%= user.userName %></div>
         <div class="profilePic"><%= user.profilePicture %></div>
         <div class="bio"><%= user.bio %></div>
+        <div class="followers"><a href="/followers/<%= user.userName %>">Followers: <%= user.followers.length %></a></div>
+        <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length + user.communities.length %></a></div>
+        <!-- if currentUser.following has user.id dont show or currentUser.username = user.userName -->
+        <div class="follow"><a href="/follow/<%= user.userName %>">Follow</a></div>
         <div><a href="/communities/<%= user.userName %>">Communities!</a></div>
     </div>
 

@@ -30,3 +30,21 @@ exports.profile_communities_get = (req, res) =>{
         console.log(err);
     });
 }
+
+exports.profile_follow_get = (req, res) =>{
+    User.findOne({userName: req.params.username})
+    .then(user => {
+        req.user.following.push(user);
+        req.user.save()
+        .then(()=>{
+            res.redirect(`/profile/${req.user.userName}`)
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.send(err);
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
