@@ -52,4 +52,3 @@ exports.home_signout_get = (req, res) =>
     req.flash('success', 'You are sucessfully logged out')
     res.redirect("/");
 };
-

@@ -19,7 +19,7 @@ app.use(session({
     secret: process.env.secret,
     saveUninitialized: true, 
     resave: false, 
-    cookie: {maxAge: 360000} 
+    cookie: {maxAge: 9600000} 
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -37,6 +37,7 @@ const profilesRoute = require('./routes/profiles');
 const communitiesRoute =  require('./routes/communities');
 const postsRoute =  require('./routes/posts');
 const authRoute =  require('./routes/auth');
+const indexRoute =  require('./routes/index');
 app.use(express.static('public'));
 
 // Mount Routes
@@ -44,6 +45,7 @@ app.use('/', profilesRoute);
 app.use('/', communitiesRoute);
 app.use('/', postsRoute);
 app.use('/', authRoute);
+app.use('/', indexRoute);
 
 //set view engine
 app.set("view engine", "ejs");

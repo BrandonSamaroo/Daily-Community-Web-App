@@ -6,12 +6,19 @@ const communitySchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: [3, "name must be more than 3 characters"],
-        maxlength: [20, "name must be less than 20 characters"]
+        maxlength: [20, "name must be less than 20 characters"],
+        unique: [true, "Community already exists"]
     },
     profilePicture:
     {
         type:String,
-        //implement after
+        required: true
+    },
+    bio:
+    {
+        type:String,
+        maxlength: [50, "bio must be less than 50 characters"],
+        required: true
     },
     users:
     [{

@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const authCntrl = require('../controllers/auth');
 const {body} = require('express-validator');
+const isLoggedinHome =  require('../helper/isLoggedinHome')
 
-router.get('/', authCntrl.home_signin_get);
+router.get('/',isLoggedinHome,authCntrl.home_signin_get);
 router.get('/auth/signup', authCntrl.home_signup_get);
 router.post('/auth/signup', [
     body('firstName').isLength({min:3, max:20}).withMessage('First name must be longer than 3 & less than 20 characters'),

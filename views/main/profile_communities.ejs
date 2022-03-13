@@ -1,0 +1,6 @@
+<main>
+    <h1><%= user.userName %>'s Communities</h1>
+    <% user.communities.forEach((community)=>{ %>
+        <div><a href="/community/<%= community.name %>"><%= community.name %></a></div>
+    <% }) %>
+</main>

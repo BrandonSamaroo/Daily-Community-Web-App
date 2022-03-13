@@ -1,0 +1,38 @@
+<main>
+    <div class="profile">
+        <div class="name"><%= user.firstName %> <%= user.lastName %></div>
+        <div class="username"><%= user.userName %></div>
+        <div class="profilePic"><%= user.profilePicture %></div>
+        <div class="bio"><%= user.bio %></div>
+        <div><a href="/communities/<%= user.userName %>">Communities!</a></div>
+    </div>
+
+
+    <br>
+
+    <div class="newpost">
+        <form method="post" action="/post" class="post-form">
+            <label>Create a Post!</label>
+            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+
+    <br>
+
+    <% user.posts.forEach((post,idx) =>{ %>
+        <div class="posts">
+            <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
+            <div class="username"><%= post.user.userName %></div>
+            <% if(post.community){ %>
+                <div class="username"><%= post.community.name %></div>
+            <% } %>
+            <div class="time-created"><%= post.createdAt %></div>
+            <div class="content"><%= post.content %></div>
+            <div class="likes"><%= post.likes %></div>
+            <div class="replies"><%= post.replies.length %></div>
+        </div>
+    <% }) %>
+
+
+</main>

@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/main.css" type="text/css">
+    <link rel="stylesheet" href="../styles/main.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8cd7940ab5.js" crossorigin="anonymous"></script>
     <title>Daily Community</title>
 </head>
 <body>
-    <div class="topnav">
-        <img src="../assets/logo.png" alt="Logo display">
-        <form method="post" action="/">
-            <input type="text" name="query">
-            <button type="submit">Submit</button>
-        </form>
-        <a href="/main/notifications">Notifications</a>
-        <a href="/main/messages">Messages</a>
-        <a href="/main/profile">profile</a>
-    </div>
+    <nav class="sidebar">
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <img src="../assets/logo.png" alt="Logo display">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/main"><i class="fa-solid fa-house"></i><span class="link-text">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile/<%= currentUser.userName %>"><i class="fa-solid fa-user"></i><span class="link-text">Profile</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search"><i class="fa-solid fa-magnifying-glass"></i><span class="link-text">Search</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/notifications"><i class="fa-solid fa-bell"></i><span class="link-text">Notifications</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/messages"><i class="fa-solid fa-message"></i><span class="link-text">Messages</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/communities/<%= currentUser.userName %>"><i class="fa-solid fa-user-group"></i><span class="link-text">Communities</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/create/community"><i class="fa-solid fa-circle-plus"></i><span class="link-text">Create Community</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/settings"><%= currentUser.firstName%></a>
+            </li>
+        </ul>
+    </nav>
     <%- body %>
 </body>
 <script

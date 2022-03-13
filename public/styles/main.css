@@ -1,34 +1,105 @@
-*{
+:root{
+    font-size: 16px;
     font-family: 'Fredoka', sans-serif;
-}
-
-.topnav{
-    display: flex;
-    height: 10vh;
-    width: 100%;
-    align-items: top;
-    justify-content: space-around;
-    background-color: antiquewhite;
-}
-
-.topnav a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-}
-
-img{
-    cursor: pointer;
+    --text-primary: black;
+    --text-secondary: grey;
+    --bg-primary: white;
+    --bg-secondary: gainsboro;
 }
 
 body{
-    max-width: 100%;
-    overflow-x: hidden;
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+.sidebar{
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--bg-secondary);
+    transition: 200ms ease;
+}
+
+.sidebar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+
+.nav-item{
+    width: 100%;
+}
+
+.nav-item:last-child{
+    margin-top: auto;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.nav-link:hover{
+    background-color: var(--text-secondary);
+    transition: 200ms ease;
+}
+
+.link-text{
+    display: none;
+}
+
+i{
+    min-width: 5rem;
+    margin: 0 1.5rem;
+}
+
+.sidebar:hover{
+    width: 16rem;
+}
+
+.sidebar:hover *{
+    justify-content: center;
+}
+
+.sidebar:hover .link-text{
+    display: block;
+}
+
+.sidebar:hover i{
+    display: none;
+}
+
+img{
+    height: 5rem;
+}
+
+.post-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-form *{
+    margin: 5px;
+}
+
+.asset-buttons{
+    display: flex;
+    justify-content: center;
 }

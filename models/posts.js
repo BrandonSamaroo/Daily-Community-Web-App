@@ -33,6 +33,10 @@ const postSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     },
+    asset: {
+        //google how to do
+        type: String,
+    }   
 
 },
     {
