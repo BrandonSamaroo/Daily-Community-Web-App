@@ -1,0 +1,17 @@
+<% posts.forEach((post,idx) =>{ %>
+    <div class="posts">
+        <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
+        <div class="username"><a href="/profile/<%= post.user.userName %>"><%= post.user.userName %></a></div>
+        <% if(post.community){ %>
+            <div class="username"><%= post.community.name %></div>
+        <% } %>
+        <div class="time-created"><%= moment(post.createdAt).fromNow() %></div>
+        <div class="content"><a href="/post/<%= post.user.userName %>?id=<%= post.id %>"><%= post.content %></a></div>
+        <form action="/like/<%= post.id%>" method="post">
+            <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
+            <label class="like-counter"><%= post.likes.length %></label>
+            <input type="hidden" name="redirect" value="/"></button>
+        </form>
+        <div class="replies"><a href="/post/<%= post.user.userName %>?id=<%= post.id %>"><i class="fa-solid fa-comments"></i></a></i><%= post.replies.length %></div>
+    </div>
+<% }) %>

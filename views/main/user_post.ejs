@@ -1,0 +1,51 @@
+<main>
+    <% if(parent != undefined) { %>
+        <div class="posts">
+            <div class="name"><%= parent.user.firstName %> <%= parent.user.lastName %></div>
+            <div class="username"><a href="/profile/<%= parent.user.userName %>"><%= parent.user.userName %></a></div>
+            <% if(parent.community){ %>
+                <div class="username"><%= parent.community.name %></div>
+            <% } %>
+            <div class="time-created"><%= moment(parent.createdAt).fromNow() %></div>
+            <div class="content"><%= parent.content %></div>
+            <form action="/like/<%= parent.id%>" method="post">
+                <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
+                <label class="like-counter"><%= parent.likes.length %></label>
+            </form>
+        </div>
+
+        <h1>REPLY</h1>
+    <% } %>
+    
+    
+    
+
+    <div class="posts">
+        <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
+        <div class="username"><a href="/profile/<%= post.user.userName %>"><%= post.user.userName %></a></div>
+        <% if(post.community){ %>
+            <div class="username"><%= post.community.name %></div>
+        <% } %>
+        <div class="time-created"><%= moment(post.createdAt).fromNow() %></div>
+        <div class="content"><%= post.content %></div>
+        <form action="/like/<%= post.id%>" method="post">
+            <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
+            <label class="like-counter"><%= post.likes.length %></label>
+        </form>
+    </div>
+    
+    <br>
+
+    <form method="post" action="/reply/<%= post.id %>" class="post-form">
+        <label>Reply</label>
+        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+        <input type="hidden" name="user" value="<%= post.user.id %>">
+        <input type="hidden" name="redirect" value="/post/<%= post.user.userName %>?id=<%= post.id %>">
+        <button type="submit">Reply!</button>
+    </form>
+
+    <br>
+
+    <%- include('../partials/post') %>
+
+</main>

@@ -5,7 +5,7 @@
         <div class="profilePic"><%= user.profilePicture %></div>
         <div class="bio"><%= user.bio %></div>
         <div class="followers"><a href="/followers/<%= user.userName %>">Followers: <%= user.followers.length %></a></div>
-        <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length + user.communities.length %></a></div>
+        <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length %></a></div>
         <% if(displayFollow){ %>
             <div class="follow"><a href="/follow/<%= user.userName %>">Follow</a></div>
         <% }else if(yourAccount){ %>
@@ -18,30 +18,19 @@
 
 
     <br>
-
-    <div class="newpost">
-        <form method="post" action="/post" class="post-form">
-            <label>Create a Post!</label>
-            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
-            <button type="submit">Post</button>
-        </form>
-    </div>
+    
+    <% if (yourAccount) { %>
+    <form method="post" action="/post" class="post-form">
+        <label>Create a Post To Your Profile!</label>
+        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+        <input type="hidden" name="community" value="null">
+        <button type="submit">Post</button>
+    </form>
+    <% } %> 
 
     <br>
 
-    <% user.posts.forEach((post,idx) =>{ %>
-        <div class="posts">
-            <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
-            <div class="username"><%= post.user.userName %></div>
-            <% if(post.community){ %>
-                <div class="username"><%= post.community.name %></div>
-            <% } %>
-            <div class="time-created"><%= post.createdAt %></div>
-            <div class="content"><%= post.content %></div>
-            <div class="likes"><%= post.likes %></div>
-            <div class="replies"><%= post.replies.length %></div>
-        </div>
-    <% }) %>
+    <%- include('../partials/post') %>
 
 
 </main>

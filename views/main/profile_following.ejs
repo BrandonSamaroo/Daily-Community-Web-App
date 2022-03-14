@@ -1,0 +1,7 @@
+<main>
+    <h1><%= user.userName %> follows</h1>
+    <% user.following.forEach((follow)=>{ %>
+        <div><a href="/profile/<%= follow.userName %>"><%= follow.userName %></a></div>
+        <div><%= follow.firstName %> <%= follow.lastName %></div>
+    <% }) %>
+</main>

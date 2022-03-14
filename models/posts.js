@@ -13,10 +13,10 @@ const postSchema = mongoose.Schema({
         required: true,
     },
     likes:
-    {
-        type: Number,
-        required: true,
-    },
+    [{  
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     content:
     {
         type: String,

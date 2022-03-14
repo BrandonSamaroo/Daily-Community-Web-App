@@ -9,6 +9,12 @@
                 <option value="<%= community.name %>"><%= community.name %></option>
             <% }) %>
         </select>
+        <input type="hidden" name="redirect" value="/">
         <button type="submit">Post</button>
     </form>
+
+    <br>
+
+    <%- include('../partials/post') %>
+    
 </main>

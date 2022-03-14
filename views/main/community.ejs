@@ -5,30 +5,19 @@
         <div class="bio"><%= community.bio %></div>
     </div>
 
+    <br>
+
+    <form method="post" action="/post" class="post-form">
+        <label>Create a Post To <%= community.name %></label>
+        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+        <input type="hidden" name="community" value="<%= community.name %>">
+        <input type="hidden" name="redirect" value="/community/<%= community.name %>">
+        <button type="submit">Post</button>
+    </form>
 
     <br>
 
-    <div class="newpost">
-        <form method="post" action="/post" class="post-form">
-            <label>Create a Post!</label>
-            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
-            <button type="submit">Post</button>
-        </form>
-    </div>
+    <%- include('../partials/post') %>
 
-    <br>
 
-    <% community.posts.forEach((post,idx) =>{ %>
-        <div class="posts">
-            <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
-            <div class="username"><%= post.user.userName %></div>
-            <% if(post.community){ %>
-                <div class="username"><%= post.community.name %></div>
-            <% } %>
-            <div class="time-created"><%= post.createdAt %></div>
-            <div class="content"><%= post.content %></div>
-            <div class="likes"><%= post.likes %></div>
-            <div class="replies"><%= post.replies.length %></div>
-        </div>
-    <% }) %>
 </main>

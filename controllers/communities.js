@@ -2,6 +2,7 @@ const User = require("../models/Users");
 const Post = require("../models/posts");
 const Community = require('../models/communities');
 const { redirect } = require("express/lib/response");
+const moment = require("moment");
 
 exports.create_community_get = (req, res) =>{
     res.render("main/create_community")
@@ -14,7 +15,7 @@ exports.create_community_post = (req, res) =>{
     .then((community)=>{
         req.user.communities.push(community);
         req.user.save();
-        res.redirect('/main')
+        res.redirect(`/communities/${req.user.userName}`);
     })
     .catch((err)=>{
         console.log(err)
@@ -32,7 +33,7 @@ exports.community_get = (req, res)=>{
         ]
     })
     .then(community => {
-        res.render("main/community", {community: community})
+        res.render("main/community", {community, posts: community.posts, moment})
     })
     .catch(err => {
         console.log(err);

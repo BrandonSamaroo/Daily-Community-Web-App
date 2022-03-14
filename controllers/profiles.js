@@ -1,6 +1,7 @@
 const User = require("../models/Users");
 const Post = require("../models/posts");
 const Community = require('../models/communities');
+const moment = require("moment");
 
 //populate posts users and posts communities
 exports.profile_get = (req, res) =>{
@@ -22,7 +23,7 @@ exports.profile_get = (req, res) =>{
         if(req.user.following.includes(user.id)){
             displayFollow = false;
         }
-        res.render("main/profile", {user, displayFollow, yourAccount})
+        res.render("main/profile", {user, displayFollow, yourAccount, posts: user.posts, moment})
     })
     .catch(err => {
         console.log(err);
@@ -73,6 +74,27 @@ exports.profile_follow_get = (req, res) =>{
             })
         }
         
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+
+exports.profile_following_get = (req, res) =>{
+    User.findOne({userName: req.params.username}).populate('following')
+    .then(user => {
+        res.render("main/profile_following", {user: user})
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+exports.profile_followers_get = (req, res) =>{
+    User.findOne({userName: req.params.username}).populate('followers')
+    .then(user => {
+        res.render("main/profile_followers", {user: user})
     })
     .catch(err => {
         console.log(err);
