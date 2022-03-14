@@ -66,8 +66,7 @@ const userSchema = mongoose.Schema({
     following:
     [{  
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        unique: [true, "You are already following this account"]
+        ref: 'User'
     }]
 },
     {

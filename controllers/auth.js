@@ -29,7 +29,7 @@ exports.home_signup_post = (req, res) =>
         const errors = validationResult(req);
         if(err.code == 11000)
         {
-            req.flash('error', 'email already entered')
+            console.log(err)
         }
         else if (!errors.isEmpty())
         {
