@@ -1,5 +1,7 @@
 const User = require("../models/Users");
+const Community = require('../models/communities');
 const moment = require("moment");
+const e = require("connect-flash");
 
 exports.main_get = (req, res) => {
     let postsToDisplay = {};
@@ -43,7 +45,34 @@ exports.main_get = (req, res) => {
 }
 
 exports.search_get = (req, res) =>{
-    res.render('main/search')
+    res.render('main/search', {activeSearch: false})
+}
+
+exports.search_post = (req, res) =>{
+    if (req.body.option == "communties"){
+        Community.find({name: {$eq: req.body.name}})
+        .then((communities)=>{
+            res.render('main/search', {activeSearch: true, communities: communities, users: []})
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.send(err)
+        })
+    }
+    else if(req.body.option == "users"){
+        User.find({userName: {$eq: req.body.name}})
+        .then((users)=>{
+            console.log(users)
+            res.render('main/search', {activeSearch: true, users: users, communities: []})
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.send(err)
+        })
+    }
+    else{
+        res.redirect('back')
+    }
 }
 
 exports.notifications_get = (req, res) =>{

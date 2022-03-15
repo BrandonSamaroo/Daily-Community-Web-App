@@ -10,6 +10,8 @@ exports.create_community_get = (req, res) =>{
 
 exports.create_community_post = (req, res) =>{
     let community = new Community(req.body);
+    let imagPath = '/assets/' + req.file.filename;
+    community.profilePicture = imagPath;
     community.users.push(req.user)
     community.save()
     .then((community)=>{
@@ -19,7 +21,7 @@ exports.create_community_post = (req, res) =>{
     })
     .catch((err)=>{
         console.log(err)
-        res.send(err)
+        res.redirect('/create/community')
     })
 }
 

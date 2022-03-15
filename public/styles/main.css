@@ -42,6 +42,11 @@ main{
     width: 100%;
 }
 
+.nav-item-logo{
+    width: 100%;
+    display: flex;
+}
+
 .nav-item:last-child{
     margin-top: auto;
 }
@@ -85,8 +90,11 @@ i{
     display: none;
 }
 
-img{
+.logo{
     height: 5rem;
+    object-fit: cover;
+    border-radius: 50px;
+    justify-content: center;
 }
 
 .post-form{
@@ -114,4 +122,18 @@ img{
     text-decoration: underline;
     font-family: inherit;
     font-size: inherit;
+}
+
+.profile-picture-post{
+    width: 25px; 
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.profile-picture{
+    width: 55px; 
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50px;
 }

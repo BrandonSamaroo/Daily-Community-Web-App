@@ -1,8 +1,14 @@
 <main>
     <div class="profile">
+        <div class="profile-picture">
+            <% if(currentUser.profilePicture){ %>
+                <img src="<%= currentUser.profilePicture%>" alt="Profile Picture" class="profile-picture">
+            <% } else{ %>
+                <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture">
+            <% } %>
+        </div>
         <div class="name"><%= user.firstName %> <%= user.lastName %></div>
         <div class="username"><%= user.userName %></div>
-        <div class="profilePic"><%= user.profilePicture %></div>
         <div class="bio"><%= user.bio %></div>
         <div class="followers"><a href="/followers/<%= user.userName %>">Followers: <%= user.followers.length %></a></div>
         <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length %></a></div>

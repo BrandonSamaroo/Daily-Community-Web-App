@@ -56,7 +56,6 @@ const userSchema = mongoose.Schema({
     profilePicture:
     {
         type:String,
-        //implement after
     },
     followers:
     [{  

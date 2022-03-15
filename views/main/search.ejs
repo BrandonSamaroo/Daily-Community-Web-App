@@ -1,3 +1,32 @@
 <main>
-    <h1>this is a search</h1>
+    <h1>Search</h1>
+    <form action="/search" method="post">
+        <div class="choice">
+            <label>Select a Search Option: </label>
+            <select name="option" class="select-choice">
+                <option value="communties">Communities</option>
+                <option value="users">Users</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input name="name" type="text" class="name-input" placeholder="Enter a name">
+        </div>
+        <hr>
+        <button type="submit">Search</button>
+    </form>
+    <% if(activeSearch) { %>
+        <% communities.forEach(community =>{ %>
+            <div>
+                <a href="/community/<%= community.name %>"><%= community.name %></a>
+            </div>
+        <% }) %>
+        <% users.forEach(user =>{ %>
+            <div>
+                <a href="/profile/<%= user.userName %>"><%= user.userName %></a>
+            </div>
+        <% }) %>
+    <% } %>
+
+
 </main>

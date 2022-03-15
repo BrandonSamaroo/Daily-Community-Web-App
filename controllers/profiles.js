@@ -100,3 +100,16 @@ exports.profile_followers_get = (req, res) =>{
         console.log(err);
     });
 }
+
+
+exports.profile_picture_post = (req, res) =>{
+    let imagPath = '/assets/' + req.file.filename;
+    req.user.profilePicture = imagPath;
+    req.user.save()
+    .then(()=>{
+        res.redirect(`/profile/${req.user.userName}`)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}

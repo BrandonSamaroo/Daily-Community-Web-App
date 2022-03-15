@@ -105,7 +105,6 @@ exports.post_get = (req, res)=>{
             {path: 'community'}]}
     ])
     .then(post => {
-        console.log(post.parent)
         res.render('main/user_post', {posts: post.replies, moment, post, parent: post.parent});
     })
     .catch(err => {

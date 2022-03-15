@@ -14,8 +14,8 @@
 <body>
     <nav class="sidebar">
         <ul class="sidebar-nav">
-            <li class="nav-item">
-                <img src="../assets/logo.png" alt="Logo display">
+            <li class="nav-item-logo">
+                <img src="../assets/logo.png" alt="Logo display" class="logo">
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/main"><i class="fa-solid fa-house"></i><span class="link-text">Home</span></a>
@@ -40,7 +40,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/settings"><%= currentUser.firstName%></a>
+                <% if(currentUser.profilePicture){ %>
+                    <a class="nav-link" href="/settings"><img src="<%= currentUser.profilePicture%>" alt="Profile Picture" class="profile-picture"></a>
+                <% } else{ %>
+                    <a class="nav-link" href="/settings"><img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture"></a>
+                <% } %>
             </li>
         </ul>
     </nav>

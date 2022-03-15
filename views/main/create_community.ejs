@@ -1,9 +1,16 @@
 <main>
-    <form method="post" action="/create/community">
+    <form method="post" action="/create/community" class="create-community-form" enctype="multipart/form-data">
         <label>Create a New Community!</label>
-        <input name="name" type="text" placeholder="Name">
-        <input name="profilePicture" type="text" placeholder="Display Picture">
-        <input name="bio" type="text" placeholder="Bio">
+        <div class="community-form-element">
+            <input name="name" type="text" placeholder="Name">
+        </div>
+        <label>Upload Community Picture: </label>
+        <div class="community-form-element">
+            <input type="file" name="image" class="form-control">
+        </div>
+        <div class="community-form-element">
+            <input name="bio" type="text" placeholder="Bio">
+        </div>
         <hr>
         <button type="submit">Create Community</button>
     </form>

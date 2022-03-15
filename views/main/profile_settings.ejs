@@ -1,6 +1,13 @@
 <main>
     <h1>My Settings</h1>
-    <p>user <%= currentUser.userName %> aka only logged in user can see this page with their info</p>
-
+    <form method="POST" action="/uploadProfilePic" enctype="multipart/form-data" class="upload-pic-form">
+        <div class="pic-div">
+          <label>Upload Profile Picture: </label>
+          <input type="file" name="image" class="form-control">
+          <button type="submit" class="submit-pic-btn">Upload Profile Pic</button>
+        </div>
+      </form>
+      <br />
+      <br />
     <a href="/auth/signout" class="signoutBtn">signout</a>
 </main>

@@ -1,6 +1,13 @@
 <main>
     <% if(parent != undefined) { %>
         <div class="posts">
+            <div class="profile-picture">
+                <% if(parent.user.profilePicture){ %>
+                    <img src="<%= parent.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
+                <% } else{ %>
+                    <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
+                <% } %>
+            </div>
             <div class="name"><%= parent.user.firstName %> <%= parent.user.lastName %></div>
             <div class="username"><a href="/profile/<%= parent.user.userName %>"><%= parent.user.userName %></a></div>
             <% if(parent.community){ %>
@@ -21,6 +28,13 @@
     
 
     <div class="posts">
+        <div class="profile-picture">
+            <% if(post.user.profilePicture){ %>
+                <img src="<%= post.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
+            <% } else{ %>
+                <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
+            <% } %>
+        </div>
         <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
         <div class="username"><a href="/profile/<%= post.user.userName %>"><%= post.user.userName %></a></div>
         <% if(post.community){ %>
