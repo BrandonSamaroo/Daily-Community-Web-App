@@ -18,6 +18,11 @@ main{
     margin-left: 5rem;
     padding: 1rem;
 }
+.block-element{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
 
 .sidebar{
     width: 5rem;

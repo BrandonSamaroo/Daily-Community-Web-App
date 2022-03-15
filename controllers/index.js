@@ -50,7 +50,7 @@ exports.search_get = (req, res) =>{
 
 exports.search_post = (req, res) =>{
     if (req.body.option == "communties"){
-        Community.find({name: {$eq: req.body.name}})
+        Community.find({name: {$regex: req.body.name}})
         .then((communities)=>{
             res.render('main/search', {activeSearch: true, communities: communities, users: []})
         })
@@ -60,7 +60,7 @@ exports.search_post = (req, res) =>{
         })
     }
     else if(req.body.option == "users"){
-        User.find({userName: {$eq: req.body.name}})
+        User.find({userName: {$regex: req.body.name}})
         .then((users)=>{
             console.log(users)
             res.render('main/search', {activeSearch: true, users: users, communities: []})

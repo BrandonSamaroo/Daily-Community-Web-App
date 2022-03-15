@@ -1,6 +1,6 @@
 <main>
     <% if(parent != undefined) { %>
-        <div class="posts">
+        <div class="posts block-element">
             <div class="profile-picture">
                 <% if(parent.user.profilePicture){ %>
                     <img src="<%= parent.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
@@ -21,13 +21,13 @@
             </form>
         </div>
 
-        <h1>REPLY</h1>
+        <div class="block-element"><%= post.user.firstName %> <%= post.user.lastName %> Replied with:</div>
     <% } %>
     
     
     
 
-    <div class="posts">
+    <div class="posts block-element">
         <div class="profile-picture">
             <% if(post.user.profilePicture){ %>
                 <img src="<%= post.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
@@ -49,14 +49,15 @@
     </div>
     
     <br>
-
-    <form method="post" action="/reply/<%= post.id %>" class="post-form">
-        <label>Reply</label>
-        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
-        <input type="hidden" name="user" value="<%= post.user.id %>">
-        <input type="hidden" name="redirect" value="/post/<%= post.user.userName %>?id=<%= post.id %>">
-        <button type="submit">Reply!</button>
-    </form>
+    <div class="block-element">
+        <form method="post" action="/reply/<%= post.id %>" class="post-form">
+            <label>Reply to <%= post.user.firstName %> <%= post.user.lastName %></label>
+            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+            <input type="hidden" name="user" value="<%= post.user.id %>">
+            <input type="hidden" name="redirect" value="/post/<%= post.user.userName %>?id=<%= post.id %>">
+            <button type="submit">Reply!</button>
+        </form>
+    </div>
 
     <br>
 

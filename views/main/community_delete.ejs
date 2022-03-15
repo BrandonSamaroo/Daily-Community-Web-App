@@ -1,0 +1,11 @@
+<main>
+    <h1 class="block-element">Delete Community?</h1>
+    <div class="block-element">
+    <form method="POST" action="/delete/<%= community.name %>">
+        <label>Type "YES" to delete <%= community.name %></label>
+        <input type="text" placeholder="YES? or NO?" name="option">
+        <br>
+        <button type="submit">Delete?</button>
+    </form>
+    </div>
+</main>

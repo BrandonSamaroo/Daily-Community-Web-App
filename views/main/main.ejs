@@ -1,17 +1,19 @@
 <main>
-    <form method="post" action="/post" class="post-form">
-        <label>Create a Post!</label>
-        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
-        <label>Optional: Select a Community</label>
-        <select name="community" id="community">
-            <option value="null"></option>
-            <% currentUser.communities.forEach((community) =>{ %>
-                <option value="<%= community.name %>"><%= community.name %></option>
-            <% }) %>
-        </select>
-        <input type="hidden" name="redirect" value="/">
-        <button type="submit">Post</button>
-    </form>
+    <div class="block-element">
+        <form method="post" action="/post" class="post-form">
+            <label>Create a Post!</label>
+            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+            <label>Optional: Select a Community</label>
+            <select name="community" id="community">
+                <option value="null"></option>
+                <% currentUser.communities.forEach((community) =>{ %>
+                    <option value="<%= community.name %>"><%= community.name %></option>
+                <% }) %>
+            </select>
+            <input type="hidden" name="redirect" value="/">
+            <button type="submit">Post</button>
+        </form>
+    </div>
 
     <br>
 

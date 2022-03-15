@@ -1,6 +1,8 @@
 <main>
-    <h1><%= user.userName %>'s communities</h1>
+    <h1 class="block-element"><%= user.userName %>'s communities</h1>
     <% user.communities.forEach((community)=>{ %>
-        <div><a href="/community/<%= community.name %>"><%= community.name %></a></div>
+        <div class="block-element">
+            <a href="/community/<%= community.name %>"><%= community.name %></a>
+        </div>
     <% }) %>
 </main>

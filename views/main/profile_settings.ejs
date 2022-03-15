@@ -1,13 +1,15 @@
 <main>
-    <h1>My Settings</h1>
-    <form method="POST" action="/uploadProfilePic" enctype="multipart/form-data" class="upload-pic-form">
+    <h1 class="block-element">My Settings</h1>
+    <div class="block-element">
+      <form method="POST" action="/uploadProfilePic" enctype="multipart/form-data" class="upload-pic-form">
         <div class="pic-div">
           <label>Upload Profile Picture: </label>
           <input type="file" name="image" class="form-control">
           <button type="submit" class="submit-pic-btn">Upload Profile Pic</button>
         </div>
       </form>
+    </div>
       <br />
       <br />
-    <a href="/auth/signout" class="signoutBtn">signout</a>
+    <a href="/auth/signout" class="signoutBtn block-element">Sign Out</a>
 </main>
