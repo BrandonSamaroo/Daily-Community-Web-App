@@ -20,7 +20,8 @@ router.get('/communities/:username', isLoggedIn, profilesCntrl.profile_communiti
 router.get('/follow/:username', isLoggedIn, profilesCntrl.profile_follow_get);
 router.get('/following/:username', isLoggedIn, profilesCntrl.profile_following_get);
 router.get('/followers/:username', isLoggedIn, profilesCntrl.profile_followers_get);
-router.post('/uploadProfilePic', isLoggedIn, upload.single('image'), profilesCntrl.profile_picture_post)
+router.post('/uploadProfilePic', isLoggedIn, upload.single('image'), profilesCntrl.profile_picture_post);
+router.post('/setBio/:username', isLoggedIn, profilesCntrl.profile_bio_post)
 
 
 module.exports = router;

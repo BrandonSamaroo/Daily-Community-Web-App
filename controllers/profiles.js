@@ -113,3 +113,16 @@ exports.profile_picture_post = (req, res) =>{
         console.log(err);
     })
 }
+
+
+exports.profile_bio_post = (req, res) =>{
+    let bio = req.body.bio
+    req.user.bio = bio
+    req.user.save()
+    .then(()=>{
+        res.redirect(`/profile/${req.user.userName}`)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}

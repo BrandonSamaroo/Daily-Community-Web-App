@@ -23,5 +23,6 @@ router.get('/settings/:name', isLoggedIn, communitiesCntrl.community_settings_ge
 router.post('/uploadCommunityPic/:name', isLoggedIn, upload.single('image'), communitiesCntrl.community_picture_post);
 router.get('/delete/:name', isLoggedIn, communitiesCntrl.community_delete_get);
 router.post('/delete/:name', isLoggedIn, communitiesCntrl.community_delete_post);
+router.post('/community/setBio/:name', isLoggedIn, communitiesCntrl.community_bio_post);
 
 module.exports = router;

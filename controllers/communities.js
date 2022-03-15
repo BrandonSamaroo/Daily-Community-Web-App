@@ -136,3 +136,20 @@ exports.community_delete_post = (req, res)=>{
         res.redirect('back')
     }
 }
+
+exports.community_bio_post = (req, res) =>{
+    Community.findOne({name: req.params.name})
+    .then((community)=>{
+        community.bio = req.body.bio
+        community.save()
+        .then(()=>{
+            res.redirect(`/community/${community.name}`)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}

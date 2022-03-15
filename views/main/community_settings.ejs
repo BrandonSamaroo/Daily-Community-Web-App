@@ -1,14 +1,33 @@
 <main>
     <h1 class="block-element">My Settings</h1>
+
+    <br>
+
     <div class="block-element">
       <form method="POST" action="/uploadCommunityPic/<%= community.name %>" enctype="multipart/form-data" class="upload-pic-form">
         <div class="pic-div">
           <label>Change Community Picture: </label>
           <input type="file" name="image" class="form-control">
-          <button type="submit" class="submit-pic-btn">Upload Community Pic</button>
+          <button type="submit" class="btn">Upload Community Pic</button>
         </div>
       </form>
-      <br />
+    </div>
+
+    <br>
+
+    <div class="block-element">
+      <form method="POST" action="/community/setBio/<%= community.name %>">
+        <div class="bio-div">
+          <label>Set Bio: </label>
+          <textarea id="textarea" name="bio" maxlength="50"></textarea>
+        </div>
+        <button type="submit" class="btn">Set Bio</button>
+      </form>
+    </div>
+    
+    <br>
+
+    <div class="block-element">
       <a href="/delete/<%= community.name %>" class="signoutBtn">Delete Community</a>
     </div>
 </main>

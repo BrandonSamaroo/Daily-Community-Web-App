@@ -2,16 +2,16 @@
     <div class="block-element">
         <form method="post" action="/post" class="post-form">
             <label>Create a Post!</label>
-            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
-            <label>Optional: Select a Community</label>
-            <select name="community" id="community">
+            <textarea id="textarea" name="content" maxlength="200" placeholder="Create a post"></textarea>
+            <label id="optional-text">Optional: Select a Community</label>
+            <select name="community" class="form-select form-select-sm" id="community" aria-label=".form-select-sm example">
                 <option value="null"></option>
                 <% currentUser.communities.forEach((community) =>{ %>
                     <option value="<%= community.name %>"><%= community.name %></option>
                 <% }) %>
             </select>
             <input type="hidden" name="redirect" value="/">
-            <button type="submit">Post</button>
+            <button type="submit" class="btn">Post</button>
         </form>
     </div>
 

@@ -1,37 +1,51 @@
 <main>
-    <div class="profile block-element">
-        <div class="profile-picture">
-            <% if(user.profilePicture){ %>
-                <img src="<%= user.profilePicture%>" alt="Profile Picture" class="profile-picture">
-            <% } else{ %>
-                <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture">
-            <% } %>
+    <div class="block-element">
+        <div class="profile-header">
+            <div class="profile-main">
+                <div class="icon-follow">
+                    <div class="profile-picture">
+                        <% if(user.profilePicture){ %>
+                            <img src="<%= user.profilePicture%>" alt="Profile Picture" class="profile-picture">
+                        <% } else{ %>
+                            <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture">
+                        <% } %>
+                    </div>
+                    <% if(displayFollow){ %>
+                        <div class="follow"><a href="/follow/<%= user.userName %>">Follow</a></div>
+                    <% }else if(yourAccount){ %>
+                        <div class="follow">Your Profile</div>
+                    <% }else{ %>
+                        <div class="follow">You Follow <%= user.firstName %> <%= user.lastName %></div>
+                    <% } %> 
+                </div>
+                <div class="profile-name-username">
+                    <div class="name"><%= user.firstName %> <%= user.lastName %></div>
+                    <div class="username">@<%= user.userName %></div>
+                </div>
+            </div>
+            <div class="bio-container">
+                <div><%= user.bio %></div>
+            </div>
+            <div class="profile-lower">
+                <div class="followers"><a href="/followers/<%= user.userName %>">Followers: <%= user.followers.length %></a></div>
+                <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length %></a></div>
+                <div><a href="/communities/<%= user.userName %>">Communities <%= user.communities.length %></a></div>
+            </div>
         </div>
-        <div class="name"><%= user.firstName %> <%= user.lastName %></div>
-        <div class="username"><%= user.userName %></div>
-        <% if(displayFollow){ %>
-            <div class="follow"><a href="/follow/<%= user.userName %>">Follow</a></div>
-        <% }else if(yourAccount){ %>
-            <div class="follow">Your Profile</div>
-        <% }else{ %>
-            <div class="follow">You Follow <%= user.firstName %> <%= user.lastName %></div>
-        <% } %> 
-        <div class="bio"><%= user.bio %></div>
-        <div class="followers"><a href="/followers/<%= user.userName %>">Followers: <%= user.followers.length %></a></div>
-        <div class="following"><a href="/following/<%= user.userName %>">Following: <%= user.following.length %></a></div>
-        <div><a href="/communities/<%= user.userName %>">Communities!</a></div>
     </div>
 
 
     <br>
     
     <% if (yourAccount) { %>
+    <div class="block-element">
     <form method="post" action="/post" class="post-form">
         <label>Create a Post To Your Profile!</label>
-        <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+        <textarea id="textarea" name="content" maxlength="200"></textarea>
         <input type="hidden" name="community" value="null">
-        <button type="submit">Post</button>
+        <button type="submit" class="btn">Post</button>
     </form>
+    </div>
     <% } %> 
 
     <br>

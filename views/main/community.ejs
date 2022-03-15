@@ -21,10 +21,10 @@
     <% } else { %>
         <form method="post" action="/post" class="post-form">
             <label>Create a post to <%= community.name %></label>
-            <textarea id="textarea" name="content" rows="4" cols="50"></textarea>
+            <textarea id="textarea" name="content" maxlength="200"></textarea>
             <input type="hidden" name="community" value="<%= community.name %>">
             <input type="hidden" name="redirect" value="/community/<%= community.name %>">
-            <button type="submit">Post</button>
+            <button type="submit" class="btn">Post</button>
         </form>
     <% } %>
     </div>
