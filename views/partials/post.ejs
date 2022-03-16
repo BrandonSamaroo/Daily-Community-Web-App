@@ -24,7 +24,6 @@
                     <form action="/like/<%= post.id%>" method="post">
                         <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
                         <label class="like-counter"><%= post.likes.length %></label>
-                        <input type="hidden" name="redirect" value="/"></button>
                     </form>
                 </div>
                 <div class="replies">

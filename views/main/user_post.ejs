@@ -1,24 +1,34 @@
 <main>
     <% if(parent != undefined) { %>
-        <div class="posts block-element">
-            <div class="profile-picture">
-                <% if(parent.user.profilePicture){ %>
-                    <img src="<%= parent.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
-                <% } else{ %>
-                    <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
-                <% } %>
+        <div class="block-element">
+            <div class="post">
+                <div class="profile-picture">
+                    <% if(parent.user.profilePicture){ %>
+                        <img src="<%= parent.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
+                    <% } else{ %>
+                        <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
+                    <% } %>
+                </div>
+                <div class="name"><%= parent.user.firstName %> <%= parent.user.lastName %></div>
+                <div class="post-header">
+                    <div class="username"><a href="/profile/<%= parent.user.userName %>">@<%= parent.user.userName %></a></div>
+                    <% if(parent.community){ %>
+                        <div class="username"><%= parent.community.name %></div>
+                    <% } %>
+                    <div class="time-created"><%= moment(parent.createdAt).fromNow() %></div>
+                </div>
+                <div class="content">
+                    <a href="/post/<%= parent.user.userName %>?id=<%= parent.id %>" class="content-post"><%= parent.content %></a>
+                </div>
+                <div class="post-option-container">
+                    <div class="likes">
+                        <form action="/like/<%= parent.id%>" method="post">
+                            <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
+                            <label class="like-counter"><%= parent.likes.length %></label>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="name"><%= parent.user.firstName %> <%= parent.user.lastName %></div>
-            <div class="username"><a href="/profile/<%= parent.user.userName %>"><%= parent.user.userName %></a></div>
-            <% if(parent.community){ %>
-                <div class="username"><%= parent.community.name %></div>
-            <% } %>
-            <div class="time-created"><%= moment(parent.createdAt).fromNow() %></div>
-            <div class="content"><%= parent.content %></div>
-            <form action="/like/<%= parent.id%>" method="post">
-                <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
-                <label class="like-counter"><%= parent.likes.length %></label>
-            </form>
         </div>
 
         <div class="block-element"><%= post.user.firstName %> <%= post.user.lastName %> Replied with:</div>
@@ -27,28 +37,39 @@
     
     
 
-    <div class="posts block-element">
-        <div class="profile-picture">
-            <% if(post.user.profilePicture){ %>
-                <img src="<%= post.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
-            <% } else{ %>
-                <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
-            <% } %>
+    <div class="block-element">
+        <div class="post">
+            <div class="profile-picture">
+                <% if(post.user.profilePicture){ %>
+                    <img src="<%= post.user.profilePicture%>" alt="Profile Picture" class="profile-picture-post">
+                <% } else{ %>
+                    <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
+                <% } %>
+            </div>
+            <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
+            <div class="post-header">
+                <div class="username"><a href="/profile/<%= post.user.userName %>">@<%= post.user.userName %></a></div>
+                <% if(post.community){ %>
+                    <div class="username"><%= post.community.name %></div>
+                <% } %>
+                <div class="time-created"><%= moment(post.createdAt).fromNow() %></div>
+            </div>
+            <div class="content">
+                <a href="/post/<%= post.user.userName %>?id=<%= post.id %>" class="content-post"><%= post.content %></a>
+            </div>
+            <div class="post-option-container">
+                <div class="likes">
+                    <form action="/like/<%= post.id%>" method="post">
+                        <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
+                        <label class="like-counter"><%= post.likes.length %></label>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="name"><%= post.user.firstName %> <%= post.user.lastName %></div>
-        <div class="username"><a href="/profile/<%= post.user.userName %>"><%= post.user.userName %></a></div>
-        <% if(post.community){ %>
-            <div class="username"><%= post.community.name %></div>
-        <% } %>
-        <div class="time-created"><%= moment(post.createdAt).fromNow() %></div>
-        <div class="content"><%= post.content %></div>
-        <form action="/like/<%= post.id%>" method="post">
-            <button type="submit" name="submit-like" class="like-button"><i class="fa-solid fa-heart"></i></button>
-            <label class="like-counter"><%= post.likes.length %></label>
-        </form>
     </div>
     
     <br>
+    
     <div class="block-element">
         <form method="post" action="/reply/<%= post.id %>" class="post-form">
             <label>Reply to <%= post.user.firstName %> <%= post.user.lastName %></label>
