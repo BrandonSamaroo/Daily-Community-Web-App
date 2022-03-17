@@ -1,4 +1,4 @@
-const User = require("../models/Users");
+const User = require("../models/users");
 const Post = require("../models/posts");
 const Community = require('../models/communities');
 const { redirect } = require("express/lib/response");
