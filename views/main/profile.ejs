@@ -3,7 +3,7 @@
         <div class="profile-header">
             <div class="profile-main">
                 <div class="icon-follow">
-                    <div class="profile-picture">
+                    <div>
                         <% if(user.profilePicture){ %>
                             <img src="<%= user.profilePicture%>" alt="Profile Picture" class="profile-picture">
                         <% } else{ %>
@@ -15,7 +15,7 @@
                     <% }else if(yourAccount){ %>
                         <div class="follow">Your Profile</div>
                     <% }else{ %>
-                        <div class="follow">You Follow <%= user.firstName %> <%= user.lastName %></div>
+                        <div class="follow">You Follow</div>
                     <% } %> 
                 </div>
                 <div class="profile-name-username">

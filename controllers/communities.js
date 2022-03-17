@@ -51,7 +51,6 @@ exports.community_get = (req, res)=>{
 exports.community_follow_get = (req, res) =>{
     Community.findOne({name: req.params.name})
     .then((community)=>{
-        console.log(community)
         if (community.users.includes(req.user.id)){
             console.log('you are already in community')
         }

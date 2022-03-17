@@ -63,7 +63,6 @@ exports.search_post = (req, res) =>{
     else if(req.body.option == "users"){
         User.find({userName: {$regex: req.body.name}})
         .then((users)=>{
-            console.log(users)
             res.render('main/search', {activeSearch: true, users: users, communities: []})
         })
         .catch((err)=>{
