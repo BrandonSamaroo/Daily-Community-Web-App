@@ -259,7 +259,7 @@ main{
 
 .profile-header{
     width: 350px;
-    height: 300px;
+    height: 350px;
     border: 2px solid var(--bg-secondary);
     border-radius: 10px;
     padding: 10px;
@@ -313,4 +313,154 @@ main{
 
 .bio-container div{
     word-wrap:break-word;
+}
+
+.choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.choice-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-contaier{
+    border: 2px solid var(--bg-secondary);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.name-input{
+    width: 75%;
+}
+
+.search-result{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 2px solid var(--bg-secondary);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.a-search{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.search-dp{
+    width: 55px; 
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50px;
+    border: 2px solid var(--bg-secondary);
+    margin-right: 20px;
+}
+
+.form-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid var(--bg-secondary);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.signoutBtn{
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--bg-secondary);
+    font-size: 12px;
+}
+
+.signoutBtn:hover{
+    color: black;
+    border: 2px solid var(--text-primary);
+}
+
+a{
+    text-decoration: none;
+}
+
+.follow-following-div{
+    display: flex;
+    justify-content: center;
+    border: 2px solid var(--bg-secondary);
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.follow-following-div *{
+    margin: 10px;
+}
+
+.community-profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid var(--bg-secondary);
+    border-radius: 10px;
+    width: 400px;
+    height: 300px;
+}
+
+.community-profile-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.msg-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid var(--bg-secondary);
+    border-radius: 10px;
+    width: 550px;
+    height: 175px;
+    margin: 20px;
+}
+
+.who-container{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.space-between{
+    margin-right: 10px;
+}
+.content-container{
+    height: 150px;
+    width: 300px;
+    text-align: center;
+}
+
+.text-wrapper{
+    word-wrap: break-word;
 }

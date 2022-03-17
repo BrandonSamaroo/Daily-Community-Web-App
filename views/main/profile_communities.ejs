@@ -2,7 +2,14 @@
     <h1 class="block-element"><%= user.userName %>'s communities</h1>
     <% user.communities.forEach((community)=>{ %>
         <div class="block-element">
-            <a href="/community/<%= community.name %>"><%= community.name %></a>
+            <div class="follow-following-div">
+                <% if(community.profilePicture){ %>
+                    <img src="<%= community.profilePicture%>" alt="Profile Picture" class="search-dp">
+                <% } else{ %>
+                    <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="search-dp">
+                <% } %>
+                <div><a href="/community/<%= community.name %>"><%= community.name %></a></div>
+            </div>
         </div>
     <% }) %>
 </main>

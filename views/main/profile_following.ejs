@@ -2,8 +2,15 @@
     <h1 class="block-element"><%= user.userName %> follows</h1>
     <% user.following.forEach((follow)=>{ %>
     <div class="block-element">
-        <div><a href="/profile/<%= follow.userName %>"><%= follow.userName %></a></div>
-        <div><%= follow.firstName %> <%= follow.lastName %></div>
+        <div class="follow-following-div">
+            <% if(follow.profilePicture){ %>
+                <img src="<%= follow.profilePicture%>" alt="Profile Picture" class="search-dp">
+            <% } else{ %>
+                <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="search-dp">
+            <% } %>
+            <div><a href="/profile/<%= follow.userName %>"><%= follow.userName %></a></div>
+            <div><%= follow.firstName %> <%= follow.lastName %></div>
+        </div>
     </div>
     <% }) %>
 </main>

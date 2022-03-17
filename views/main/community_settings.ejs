@@ -4,24 +4,24 @@
     <br>
 
     <div class="block-element">
-      <form method="POST" action="/uploadCommunityPic/<%= community.name %>" enctype="multipart/form-data" class="upload-pic-form">
-        <div class="pic-div">
-          <label>Change Community Picture: </label>
-          <input type="file" name="image" class="form-control">
-          <button type="submit" class="btn">Upload Community Pic</button>
-        </div>
-      </form>
+      <form method="POST" action="/uploadCommunityPic/<%= community.name %>" enctype="multipart/form-data">
+          <div class="form-div">
+            <label>Change Community Picture: </label>
+            <input type="file" name="image" class="form-control">
+            <button type="submit" class="btn">Upload Community Pic</button>
+          </div>
+        </form>
     </div>
 
     <br>
 
     <div class="block-element">
       <form method="POST" action="/community/setBio/<%= community.name %>">
-        <div class="bio-div">
+        <div class="form-div">
           <label>Set Bio: </label>
           <textarea id="textarea" name="bio" maxlength="50"></textarea>
+          <button type="submit" class="btn">Set Bio</button>
         </div>
-        <button type="submit" class="btn">Set Bio</button>
       </form>
     </div>
     

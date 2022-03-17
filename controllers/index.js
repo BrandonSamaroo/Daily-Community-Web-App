@@ -1,5 +1,6 @@
 const User = require("../models/Users");
 const Community = require('../models/communities');
+const Message = require('../models/messages');
 const moment = require("moment");
 const e = require("connect-flash");
 
@@ -80,9 +81,25 @@ exports.notifications_get = (req, res) =>{
 }
 
 exports.messages_get = (req, res) =>{
-    res.render("main/messages")
+    Message.find({to: req.user.id}).populate([
+        {path: "from"},
+        {path: "to"}
+    ])
+    .then((messages)=>{
+        res.render("main/messages", {messages})
+    })
 }
 
 exports.settings_get = (req, res) =>{
     res.render("main/profile_settings")
+}
+
+exports.delete_message_post = (req, res) =>{
+    Message.findByIdAndDelete(req.params.id)
+    .then(()=>{
+        res.redirect('back')
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 }

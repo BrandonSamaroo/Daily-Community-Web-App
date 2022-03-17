@@ -1,7 +1,9 @@
 const User = require("../models/Users");
 const Post = require("../models/posts");
 const Community = require('../models/communities');
+const Message = require('../models/messages');
 const moment = require("moment");
+const res = require("express/lib/response");
 
 //populate posts users and posts communities
 exports.profile_get = (req, res) =>{
@@ -124,5 +126,24 @@ exports.profile_bio_post = (req, res) =>{
     })
     .catch((err)=>{
         console.log(err);
+    })
+}
+
+exports.profile_message_post = (req, res)=>{
+    let message = new Message(req.body)
+    User.findOne({userName: req.params.username})
+    .then((user)=>{
+        message.to = user;
+        message.from = req.user;
+        message.save()
+        .then(()=>{
+            res.redirect('back');
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }

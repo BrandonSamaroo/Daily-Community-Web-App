@@ -1,17 +1,21 @@
 <main>
-    <div class="community block-element">
-        <div class="profile-picture">
-            <% if(community.profilePicture){ %>
-                <img src="<%= community.profilePicture %>" alt="Profile Picture" class="profile-picture">
-            <% } else{ %>
-                <img src="../assets/defaultcommunity.jpg" alt="Profile Picture" class="profile-picture">
+    <div class="block-element">
+        <div class="community-profile-container">
+            <div class="community-profile-header">
+                <div class="picture-container">
+                    <% if(community.profilePicture){ %>
+                        <img src="<%= community.profilePicture %>" alt="Profile Picture" class="profile-picture">
+                    <% } else{ %>
+                        <img src="../assets/defaultcommunity.jpg" alt="Profile Picture" class="profile-picture">
+                    <% } %>
+                </div>
+                <div class="name"><%= community.name %></div>
+            </div>
+            <div class="bio"><%= community.bio %></div>
+            <% if(community.users[0] == currentUser.id){ %>
+                <div><a href="/settings/<%= community.name %>">Settings</a></div>
             <% } %>
         </div>
-        <div class="name"><%= community.name %></div>
-        <div class="bio"><%= community.bio %></div>
-        <% if(community.users[0] == currentUser.id){ %>
-            <div><a href="/settings/<%= community.name %>">Settings</a></div>
-        <% } %>
     </div>
 
     <br>

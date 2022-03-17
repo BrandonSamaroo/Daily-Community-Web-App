@@ -1,6 +1,28 @@
 <main>
     <h1 class="block-element">My Messages</h1>
-    <div class="block-element">
-        <p>user <%= currentUser.userName %> aka only logged in user can see this page with their info<p></p>
-    </div>
+
+    <% messages.forEach((message)=>{ %>
+        <div class="block-element">
+            <div class="msg-container">
+                <div class="who-container">
+                    <div class="space-between">
+                        <% if(message.from.profilePicture){ %>
+                            <img src="<%= message.from.profilePicture %>" alt="Profile Picture" class="profile-picture-post">
+                        <% } else{ %>
+                            <img src="../assets/defaultprofile.jpg" alt="Profile Picture" class="profile-picture-post">
+                        <% } %>
+                    </div>
+                    <div><a href="/profile/<%= message.from.userName %>"><%= message.from.userName %></a></div>
+                </div>
+                <div class="content-container">
+                    <div class="text-wrapper"><%= message.content %></div>
+                </div>
+                <div>
+                    <form method="post" action="/delete/message/<%= message.id %>">
+                        <button type="submit"><i class="fa-solid fa-trash round-corners"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% }) %>
 </main>

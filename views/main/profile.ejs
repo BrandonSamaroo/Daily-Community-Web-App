@@ -34,9 +34,24 @@
         </div>
     </div>
 
+<br>
+
+    <% if(!yourAccount){ %>
+        <div class="block-element">
+            <button class="btn show-message">Send Message</button>
+            <div hidden="true" class="message-form">
+                <form method="post" action="/message/<%= user.userName %>">
+                    <div class="message-form">
+                        <textarea id="textarea" name="content" maxlength="200"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <% } %>
 
     <br>
-    
+
     <% if (yourAccount) { %>
     <div class="block-element">
     <form method="post" action="/post" class="post-form">
@@ -52,5 +67,6 @@
 
     <%- include('../partials/post') %>
 
-
 </main>
+
+<script src="../js/unhideMessage.js"></script>
