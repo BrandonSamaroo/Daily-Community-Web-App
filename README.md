@@ -8,7 +8,7 @@ similar to twitter and reddit create a profile to allow you can create posts for
 
 ## Technologys Used
 
-Node.js, Express, MongoDB(Mongoose)
+Node.js, Express, MongoDB(Mongoose), HTML, CSS, JS, Heroku
 
 
 ## Getting Started/Links
